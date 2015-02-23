@@ -1,0 +1,14 @@
+{
+  "author": "Alexey Gurianov",
+  "name": "bem-drawer-menu",
+  "email": "gurianov@gmail.com",
+  "version": "0.0.0",
+  "ignore": [
+    ".enb/tmp",
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bem-components": "v2.0.0",
+  }
+}

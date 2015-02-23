@@ -1,0 +1,27 @@
+.kg-menu__panel
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow-x hidden
+  overflow-y: auto;
+  color: unset
+  height 100%
+  width menu-width + 50px // hide scroll bar for top lvl items
+  background-color sub-lvl-background
+  display flex
+  flex-flow column nowrap
+  &:before
+    content ' '
+    width top-lvl-width
+    height 100%
+    background-color top-lvl-background
+    position absolute
+    top 0
+    left 0
+.kg-menu__main
+  width 100%
+  overflow auto
+  flex 1
+.kg-menu__system
+  transform translateY(0) // strange bug with version display workaround

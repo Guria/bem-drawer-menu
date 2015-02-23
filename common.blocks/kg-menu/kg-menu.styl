@@ -1,0 +1,13 @@
+.kg-menu
+  font-family 'Roboto', 'Helvetica', sans-serif
+.kg-menu__aperture
+  overflow hidden
+  min-height top-lvl-height * 2 + version-height
+  max-width 100%
+  width 0
+  z-index 10
+  transition all 0.3s ease-out
+  &.kg-menu_visible_full
+    width menu-width
+  &.kg-menu_visible_lvl1
+    width top-lvl-width
