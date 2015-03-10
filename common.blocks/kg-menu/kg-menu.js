@@ -20,8 +20,7 @@ modules.define('kg-menu', ['i-bem__dom', 'dom', 'keyboard__codes', 'jquery'], fu
       item : {
         active : {
           true : function() {
-            this.delMod(this.findElem('item', 'active', true), 'active'); // why this works?
-            this.delMod(this.findElem('submenu', 'active', true), 'active');
+            this._removeActiveMod();
           }
         }
       },
@@ -33,6 +32,11 @@ modules.define('kg-menu', ['i-bem__dom', 'dom', 'keyboard__codes', 'jquery'], fu
           }, this);
         }
       },
+    },
+    _removeActiveMod: function() {
+      this
+        .delMod(this.findElem('item', 'active', true), 'active')
+        .delMod(this.findElem('submenu', 'active', true), 'active');
     },
     showMenu : function(type) {
       this.setMod('visible', type);
@@ -66,8 +70,7 @@ modules.define('kg-menu', ['i-bem__dom', 'dom', 'keyboard__codes', 'jquery'], fu
     },
     _onHide : function() {
       this.elem('items').scrollTop(0);
-      this.delMod( this.findElem('item', 'active', true), 'active');
-      this.delMod( this.findElem('submenu', 'active', true), 'active');
+      this._removeActiveMod();
       this._menu.setMod('disabled');
       // unbind events handlers
       this._menu.un('item-click', this._onItemClick);
@@ -96,7 +99,7 @@ modules.define('kg-menu', ['i-bem__dom', 'dom', 'keyboard__codes', 'jquery'], fu
   },
   {
     live : function(){
-      this.liveBindTo('menu-button', 'click', function(e) {
+      this.liveBindTo('menu-button', 'pointerclick', function(e) {
         var type = this.getMod(e.currentTarget, 'toggle') || 'lvl1';
         this.toggleMenu(type);
       });

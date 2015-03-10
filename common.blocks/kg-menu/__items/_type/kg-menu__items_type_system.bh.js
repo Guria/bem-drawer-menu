@@ -2,39 +2,41 @@ module.exports = function (bh) {
   bh.match('kg-menu__items_type_system', function(ctx, json) {
     var content = [];
     var mix = { block : 'kg-menu', elem : 'item', mods : { lvl : 'top' } };
-    json.settingsItem && content.push({
+    var settingsItem = json.settingsItem;
+    var versionItem = json.versionItem;
+    settingsItem && content.push({
       block : 'menu-item',
       tag : 'li',
-      mix : json.settingsItem.url? null : mix,
-      mods : ctx.extend({ disabled : true }, json.settingsItem.url? { type : 'link'} : null),
-      val : json.settingsItem.value || json.settingsItem,
+      mix : settingsItem.url? null : mix,
+      mods : ctx.extend({ disabled : true }, settingsItem.url? { type : 'link'} : null),
+      val : settingsItem.value || settingsItem,
       content : [{
         block : 'icon',
         mix : { block: 'kg-menu', elem: 'icon' },
-        url : json.settingsItem.iconUrl || undefined,
-        cls : json.settingsItem.iconCls || undefined,
-        content : (json.settingsItem.glyph || !(json.settingsItem.iconUrl || json.settingsItem.iconCls)) &&
-          { block : 'kg-glyph', glyph : json.settingsItem.glyph || 'settings' }
+        url : settingsItem.iconUrl,
+        cls : settingsItem.iconCls,
+        content : (settingsItem.glyph || !(settingsItem.iconUrl || settingsItem.iconCls)) &&
+          { block : 'kg-glyph', glyph : settingsItem.glyph || 'settings' }
       },
-      { tag : 'span', content : json.settingsItem.title }]
+      { tag : 'span', content : settingsItem.title }]
     });
-    if (json.settingsItem && json.settingsItem.url)
+    if (settingsItem && settingsItem.url)
       content[0].content = {
         block: 'link',
         mix: mix,
-        url: json.settingsItem.url,
+        url: settingsItem.url,
         content: content[0].content
       };
 
-    json.versionItem && content.push({
+    versionItem && content.push({
       block: 'menu-item',
       mix: [
         { block: 'kg-menu', elem: 'item' },
         { block: 'kg-menu', elem: 'version' }
       ],
       tag: 'li',
-      val: json.versionItem.value || json.versionItem,
-      content: json.versionItem.title || json.versionItem
+      val: versionItem.value || versionItem,
+      content: versionItem.title || versionItem
     });
     return content;
   });

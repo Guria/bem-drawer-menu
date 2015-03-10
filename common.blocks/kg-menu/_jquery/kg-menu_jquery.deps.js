@@ -1,4 +1,4 @@
-([
+[
   {
     mustDeps: 'kg-menu'
   },
@@ -9,7 +9,7 @@
         block: 'kg-menu',
         tech: 'bh'
       },
-      'jquery',
+      'jquery'
     ]
   }
-])
+]

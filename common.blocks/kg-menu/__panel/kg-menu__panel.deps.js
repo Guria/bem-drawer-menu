@@ -1,8 +1,6 @@
-([
-  {
-    shouldDeps : [
-      { elems: 'group' },
-      { elem: 'items', mods: { type: [ 'system', 'main' ] }},
-    ]
-  }
-]);
+({
+  shouldDeps : [
+    { elems: 'group' },
+    { elem: 'items', mods: { type: [ 'system', 'main' ] }},
+  ]
+});

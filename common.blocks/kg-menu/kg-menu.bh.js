@@ -6,10 +6,10 @@ module.exports = function(bh) {
         .mix({ elem : 'aperture' })
         .content({
           elem : 'panel',
-          items : json.items || [],
-          settingsItem : json.settingsItem || undefined,
-          versionItem : json.versionItem || undefined,
-        }, true);
+          items : json.items,
+          settingsItem : json.settingsItem,
+          versionItem : json.versionItem,
+        });
     }
   });
 };
