@@ -6,10 +6,10 @@ modules.define('menu', ['jquery', 'keyboard__codes'], function(provide, $, keyCo
       item.domElem.parents().each(function(){
         if (this.scrollHeight > this.clientHeight) {
           parent = $(this);
-          return false
+          return false;
         }
       });
-      if (!parent) { return }
+      if (!parent) { return; }
       var domElemOffsetTop = parent.offset().top,
           itemDomElemOffsetTop = item.domElem.offset().top,
           relativeScroll;
@@ -21,7 +21,7 @@ modules.define('menu', ['jquery', 'keyboard__codes'], function(provide, $, keyCo
           domElemOffsetTop -
           parent.outerHeight()) > 0) {
             parent.stop().animate({
-              'scrollTop': parent.scrollTop() + relativeScroll
+              scrollTop: parent.scrollTop() + relativeScroll
             }, 200, function (x, t, b, c, d) {
               return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
             });

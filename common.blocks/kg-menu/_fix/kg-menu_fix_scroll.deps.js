@@ -1,6 +1,8 @@
 ({
   mustDeps : [
-    'menu',
+    'menu'
+  ],
+  shouldDeps : [
     'jquery',
     { block : 'keybord', elem : 'codes' },
   ],

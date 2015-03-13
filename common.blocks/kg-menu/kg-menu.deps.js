@@ -2,13 +2,13 @@
   {
     mustDeps : [
       { block : 'i-bem', elem : 'dom' },
-      { block : 'keyboard', elem : 'codes' },
-      { block : 'menu', mods : { mode : 'radio' } },
-      { elems : ['variables'] },
-      'dom',
-      'jquery',
+      { elems : ['variables'] }
     ],
     shouldDeps : [
+      { block : 'keyboard', elem : 'codes' },
+      { block : 'menu', mods : { mode : 'radio' } },
+      'dom',
+      'jquery',
       { elems : ['panel', 'menu-button']},
       { block : 'kg-menu', mods : { fix : 'scroll' } },
     ]
