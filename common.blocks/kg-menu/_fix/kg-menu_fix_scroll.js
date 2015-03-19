@@ -1,5 +1,5 @@
 modules.define('menu', ['jquery', 'keyboard__codes'], function(provide, $, keyCodes, Menu) {
-  provide(Menu.decl(
+  provide(Menu.decl({ modName : 'fix', modVal : 'scroll' }
   {
     _scrollToItem : function(item) {
       var parent;
