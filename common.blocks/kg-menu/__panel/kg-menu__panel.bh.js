@@ -2,7 +2,7 @@ module.exports = function (bh) {
   bh.match('kg-menu__panel', function(ctx, json) {
     return {
       block: 'menu',
-      mods: { mode: 'radio', disabled: true  },
+      mods: { mode: 'radio', disabled: true, fix: 'scroll'  },
       tag: 'nav',
       mix: { block: 'kg-menu', elem: 'panel'},
       attrs: { tabIndex: 0 },
